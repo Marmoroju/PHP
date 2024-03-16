@@ -41,11 +41,15 @@
 <body>
 
     <h1>Produtos</h1>
-    <ol>
+    <ul>
         <?php while($linha = $resultados->fetch()) : ?>
-            <li><?= 'Produto: <strong>' . $linha['produto'] . '</strong>' ?></li>
+            <li><?= 'Produto: <strong>' . $linha['produto'] . '</strong>' ?></li>           
+            <li><?= 'Valor: R$ <strong>' . $linha['preco_unidade'] . '</strong>'  ?></li>
+            <br>
         <?php endwhile; ?>
-    </ol>
+    </ul>
+            
+    
     
 </body>
 </html>
