@@ -10,8 +10,6 @@
     $database = 'udemy_loja_online';
     $username = 'user_loja_web';
     $password = 'abc123'; 
-    
-
 
     try {
 
