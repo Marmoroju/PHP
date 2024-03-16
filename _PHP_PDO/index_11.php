@@ -15,12 +15,9 @@
         //fetchAll() - 
         $resultados = $ligacao->query("SELECT * FROM clientes LIMIT 20")->fetchAll(PDO::FETCH_OBJ);
 
-        //echo '<pre>';
-        //print_r(var_dump($resultados));   
         // fecha conexão
         $ligação = null;    
-        // echo '<pre>';
-        //print_r($resultados);   
+
     } catch(PDOException $err) {
 
         echo 'ERRO: ' . $err->getMessage();
@@ -57,7 +54,23 @@
                         </tr>
                     </thead>
                     <!-- Fim do Cabeçalho -->    
-               </table>
+                    <!-- Início dos resultados -->
+                    <tbody>
+                        <?php foreach($resultados as $cliente):?>
+                            <tr>
+                                <td><?= $cliente->nome ?></td>
+                                <td><?= $cliente->sexo == 'm' ? 'masculino' : 'Feminino' ?></td>
+                                <td><?= substr($cliente->data_nascimento, 0, 10) ?></td>
+                                <td><?= $cliente->email ?></td>
+                                <td><?= $cliente->telefone ?></td>
+                                <td><?= $cliente->morada . ' - ' . $cliente->cidade ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                        <!-- Fim dos resultados -->
+                    </table>
+
+                    <p class="mt-3">Total de clientes: <strong><?= count($resultados) ?></strong></p>
 
             </div>
         </div>
