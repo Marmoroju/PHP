@@ -1,8 +1,8 @@
 <?php
 
-    // OBTER DADOS COM PHP A PARTIR DA BASE DE DADOS
+    //  OBTER DADOS COM PHP A PARTIR DA BASE DE DADOS
 
-    // Define as propriedades da ligação
+    //  Define as propriedades da ligação
     $database = 'udemy_loja_online';
     $username = 'user_loja_web';
     $password = 'abc123';
@@ -49,5 +49,7 @@
     
 </body>
 </html>
+
+
 
    
