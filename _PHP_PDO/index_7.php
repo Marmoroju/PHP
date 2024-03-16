@@ -10,20 +10,16 @@
 
     try {
         
-        //  Efeturar ligação
+        //  Efeturar conexão
         $ligacao = new PDO("mysql:host=localhost;dbname=$database", $username, $password);
 
-        //fetch() - 
-        $resultados = $ligacao->query("SELECT * FROM produtos");
-        
-        // Ciclo WHILE percorre cada uma das linhas do resutado usando
-        // o método fetch()
+        // variável de teste para buscar coluna em uma query no PHP
+        $col_db = 'produtos';
 
-        //while($linha = $resultados->fetch())
-        //{
-        //    echo 'Produto: <strong>' . $linha['produto'] . '</strong><br>';
-        //}
+        //fetchAll() - 
+        $resultados = $ligacao->query("SELECT * FROM $col_db")->fetchAll();
         
+        // fecha conexão
         $ligação = null;
 
     } catch(PDOException $err) {
@@ -46,11 +42,11 @@
 
     <h1>Produtos</h1>
     <ul>
-        <?php while($linha = $resultados->fetch()) : ?>
+        <?php foreach($resultados as $linha) : ?>
             <li><?= 'Produto: <strong>' . $linha['produto'] . '</strong>' ?></li>           
             <li><?= 'Valor: R$ <strong>' . $linha['preco_unidade'] . '</strong>'  ?></li>
             <br>
-        <?php endwhile; ?>
+        <?php endforeach; ?>
     </ul>
             
     
