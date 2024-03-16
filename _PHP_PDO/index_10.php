@@ -21,7 +21,7 @@
     try {
         
         //  Efetua conexão
-        $ligacao = new PDO("mysql:host=localhost;dbname=$database", $username, $password);
+        $ligacao = new PDO("mysql:host=localhost;dbname=$database;charset=utf8", $username, $password);
 
         //fetchAll() - 
         $resultados = $ligacao->query("SELECT * FROM produtos")->fetchAll(PDO::FETCH_CLASS, "XYZ");
